@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://cbg2ruj1ud8du"]
 
-[ext_resource type="Script" uid="uid://ygi4ogrktl6o" path="res://scenes/Player/player.gd" id="1_h00vy"]
-[ext_resource type="Script" uid="uid://5q42fy0iftyu" path="res://scenes/Player/camera_3d.gd" id="2_ky53y"]
-[ext_resource type="Script" uid="uid://bc8n5xvwqph04" path="res://scenes/Player/input_manager.gd" id="3_bvqhm"]
+[ext_resource type="Script" uid="uid://ygi4ogrktl6o" path="res://scenes/player/player.gd" id="1_h00vy"]
+[ext_resource type="Script" uid="uid://5q42fy0iftyu" path="res://scenes/player/camera_3d.gd" id="2_ky53y"]
+[ext_resource type="Script" uid="uid://bc8n5xvwqph04" path="res://scenes/player/input_manager.gd" id="3_bvqhm"]
+[ext_resource type="PackedScene" uid="uid://ca8n48p02mrhh" path="res://scenes/player_ui/game_ui.tscn" id="4_ved6o"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qabgp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qabgp"]
 
 [node name="Player" type="CharacterBody3D" unique_id=714137968]
 script = ExtResource("1_h00vy")
+
+[node name="RigMesh" type="Node3D" parent="." unique_id=944810116]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigMesh" unique_id=1323380994]
+editor_description = "placeholder mesh for players model, will replace later (probably)
+\"Visibility range\" set to 1m so yourself cant see it "
+visibility_range_begin = 1.0
+mesh = SubResource("CapsuleMesh_qabgp")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2053922675]
 shape = SubResource("CapsuleShape3D_qabgp")
@@ -19,18 +30,4 @@ script = ExtResource("2_ky53y")
 [node name="InputManager" type="Node" parent="." unique_id=940193678]
 script = ExtResource("3_bvqhm")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=353987566]
-editor_description = "Container for 2d element in 3d node."
-follow_viewport_scale = 0.001
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=516215226]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -197.0
-offset_top = -23.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Press \"Esc\" to free mouse"
+[node name="CanvasLayer" parent="." unique_id=853525784 instance=ExtResource("4_ved6o")]

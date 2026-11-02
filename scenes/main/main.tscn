@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cspsx5o2xbb38"]
+
+[ext_resource type="PackedScene" uid="uid://daugbrntwicpp" path="res://scenes/worlds/scene_template.tscn" id="1_hyk8p"]
+[ext_resource type="Script" uid="uid://cwluhhja307lt" path="res://scenes/main/multiplayer_spawner.gd" id="1_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://cbg2ruj1ud8du" path="res://scenes/player/Player.tscn" id="2_l3cfh"]
+
+[node name="Main" type="Node3D" unique_id=1653159511]
+editor_description = "the root of everything
+"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1456494946]
+_spawnable_scenes = PackedStringArray("uid://cbg2ruj1ud8du")
+spawn_path = NodePath("../World")
+script = ExtResource("1_k2fmo")
+player_template = ExtResource("2_l3cfh")
+
+[node name="World" parent="." unique_id=1133173631 instance=ExtResource("1_hyk8p")]
+editor_description = "all the terrain and in game element that should be replicated between peers
+"

@@ -4,7 +4,7 @@ extends CharacterBody3D
 ## 	- player movement
 ##	- phisics: jump and fall and movement velocity
 
-
+@export var player_id := -1
 @export var speed := 5.0
 @export var jump_velocity := 4.5
 @export var push_force := 1.0
