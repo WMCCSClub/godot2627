@@ -1,5 +1,7 @@
 extends Node
 
+@onready var network_ui: Panel = $"../CanvasLayer".find_child("MultiplayerUI")
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	#handle mouse input
@@ -13,7 +15,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		
 	elif event.is_action_pressed("LMB") && Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
+	
+	elif event.is_action_pressed("Network"):
+		network_ui.visible = !network_ui.visible
 	else:
 		return
 	

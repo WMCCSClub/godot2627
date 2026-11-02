@@ -1,0 +1,261 @@
+[gd_scene format=3 uid="uid://ca8n48p02mrhh"]
+
+[ext_resource type="Script" uid="uid://cyiv53w2mbe7h" path="res://scenes/player_ui/multiplayer_ui.gd" id="1_csv70"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=853525784]
+editor_description = "Container for 2d element in 3d node."
+follow_viewport_scale = 0.001
+
+[node name="MultiplayerUI" type="Panel" parent="." unique_id=1196781446]
+editor_description = "A container that hold all the multiplayer related elements
+
+just for grouping element, also make invisible with just one toggle"
+offset_right = 460.80002
+offset_bottom = 259.2
+script = ExtResource("1_csv70")
+
+[node name="ServerOrClient" type="Control" parent="MultiplayerUI" unique_id=1172322815]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MultiplayerUI/ServerOrClient" unique_id=1101377321]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 106.40001
+offset_top = 94.100006
+offset_right = 314.40002
+offset_bottom = 125.100006
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Server" type="Button" parent="MultiplayerUI/ServerOrClient/HBoxContainer" unique_id=1152697924]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Create Server"
+
+[node name="Client" type="Button" parent="MultiplayerUI/ServerOrClient/HBoxContainer" unique_id=1550014228]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Join Server"
+
+[node name="Label" type="Label" parent="MultiplayerUI/ServerOrClient" unique_id=1476985286]
+layout_mode = 0
+offset_right = 142.0
+offset_bottom = 23.0
+text = "Network Settings: "
+
+[node name="ServerOptions" type="Control" parent="MultiplayerUI" unique_id=974860483]
+visible = false
+layout_mode = 1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MultiplayerUI/ServerOptions" unique_id=807393372]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.05
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Server Options"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MultiplayerUI/ServerOptions" unique_id=1932929647]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.1
+anchor_right = 0.98
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PortInput" type="Control" parent="MultiplayerUI/ServerOptions/VBoxContainer" unique_id=1524692178]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MultiplayerUI/ServerOptions/VBoxContainer/PortInput" unique_id=378704349]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 80.0
+offset_bottom = 23.0
+text = "Port:"
+
+[node name="LineEdit" type="LineEdit" parent="MultiplayerUI/ServerOptions/VBoxContainer/PortInput" unique_id=2124804060]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+grow_horizontal = 0
+placeholder_text = "Port here"
+
+[node name="MaxPlayerInput" type="Control" parent="MultiplayerUI/ServerOptions/VBoxContainer" unique_id=1407798152]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MultiplayerUI/ServerOptions/VBoxContainer/MaxPlayerInput" unique_id=368716225]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 80.0
+offset_bottom = 23.0
+text = "Max Player:"
+
+[node name="SpinBox" type="SpinBox" parent="MultiplayerUI/ServerOptions/VBoxContainer/MaxPlayerInput" unique_id=1550725352]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -86.5
+offset_bottom = 31.0
+grow_horizontal = 0
+max_value = 32.0
+value = 32.0
+rounded = true
+
+[node name="Control3" type="Control" parent="MultiplayerUI/ServerOptions/VBoxContainer" unique_id=1377006170]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CreateServer" type="Button" parent="MultiplayerUI/ServerOptions/VBoxContainer/Control3" unique_id=1911505958]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Create Server"
+
+[node name="AfterServer" type="Control" parent="MultiplayerUI" unique_id=2073642043]
+editor_description = "this ui shown after the server is configured"
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MultiplayerUI/AfterServer" unique_id=1683272880]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Server Created!"
+
+[node name="Label2" type="Label" parent="MultiplayerUI/AfterServer" unique_id=1984114055]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 120.0
+offset_right = 340.0
+offset_bottom = 143.0
+text = "player list here ig (do later)"
+
+[node name="ClientOptions" type="Control" parent="MultiplayerUI" unique_id=419277535]
+layout_mode = 1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.98
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MultiplayerUI/ClientOptions" unique_id=1552321417]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.05
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Client Options"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MultiplayerUI/ClientOptions" unique_id=77867902]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.1
+anchor_right = 0.98
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PortInput" type="Control" parent="MultiplayerUI/ClientOptions/VBoxContainer" unique_id=1236099275]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MultiplayerUI/ClientOptions/VBoxContainer/PortInput" unique_id=1773738027]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 80.0
+offset_bottom = 23.0
+text = "Port:"
+
+[node name="LineEdit" type="LineEdit" parent="MultiplayerUI/ClientOptions/VBoxContainer/PortInput" unique_id=248112090]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+grow_horizontal = 0
+placeholder_text = "Port here"
+
+[node name="AddrInput" type="Control" parent="MultiplayerUI/ClientOptions/VBoxContainer" unique_id=968028705]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MultiplayerUI/ClientOptions/VBoxContainer/AddrInput" unique_id=306976332]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 80.0
+offset_bottom = 23.0
+text = "Server IP:"
+
+[node name="LineEdit" type="LineEdit" parent="MultiplayerUI/ClientOptions/VBoxContainer/AddrInput" unique_id=654301617]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+grow_horizontal = 0
+placeholder_text = "Address here"
+
+[node name="Control3" type="Control" parent="MultiplayerUI/ClientOptions/VBoxContainer" unique_id=2111859272]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CreateClient" type="Button" parent="MultiplayerUI/ClientOptions/VBoxContainer/Control3" unique_id=1523285083]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+text = "Join Server"
+
+[node name="Label" type="Label" parent="." unique_id=1444739235]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -197.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Press \"Esc\" to free mouse"
+
+[connection signal="pressed" from="MultiplayerUI/ServerOrClient/HBoxContainer/Server" to="MultiplayerUI" method="_on_server_pressed"]
+[connection signal="pressed" from="MultiplayerUI/ServerOrClient/HBoxContainer/Client" to="MultiplayerUI" method="_on_client_pressed"]
+[connection signal="pressed" from="MultiplayerUI/ServerOptions/VBoxContainer/Control3/CreateServer" to="MultiplayerUI" method="_on_create_server_pressed"]
+[connection signal="pressed" from="MultiplayerUI/ClientOptions/VBoxContainer/Control3/CreateClient" to="MultiplayerUI" method="_on_create_client_pressed"]
