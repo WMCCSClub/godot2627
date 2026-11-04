@@ -9,7 +9,17 @@ extends CharacterBody3D
 @export var jump_velocity := 4.5
 @export var push_force := 1.0
 
+
+func _enter_tree() -> void:
+	## give player network athority
+	player_id = name.to_int()
+	set_multiplayer_authority(player_id)
+	position = Vector3(0, 5, 0)
+	
+
+
 func _physics_process(delta: float) -> void:
+	if not is_multiplayer_authority(): return
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

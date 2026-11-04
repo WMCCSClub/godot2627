@@ -53,3 +53,15 @@ func _check_port(port_input: LineEdit) -> int:
 		return 0
 	else:
 		return port_int
+
+
+
+
+func _on_check_ip_addr_pressed() -> void:
+	var ip := NetworkHandler.find_lan_IPv4()
+	if ip == "":
+		$AfterServer/CheckIPAddr/Warning.text = "cant find ip"
+	else:
+		DisplayServer.clipboard_set(ip)
+		$AfterServer/CheckIPAddr/Warning.text = "IP copied to clipboard"
+		

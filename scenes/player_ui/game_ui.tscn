@@ -138,7 +138,6 @@ text = "Create Server"
 
 [node name="AfterServer" type="Control" parent="MultiplayerUI" unique_id=2073642043]
 editor_description = "this ui shown after the server is configured"
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -162,7 +161,22 @@ offset_right = 340.0
 offset_bottom = 143.0
 text = "player list here ig (do later)"
 
+[node name="CheckIPAddr" type="VBoxContainer" parent="MultiplayerUI/AfterServer" unique_id=191461609]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 36.0
+offset_right = 172.0
+offset_bottom = 94.0
+
+[node name="CheckIPButton" type="Button" parent="MultiplayerUI/AfterServer/CheckIPAddr" unique_id=75805887]
+layout_mode = 2
+text = "Copy IP Address"
+
+[node name="Warning" type="Label" parent="MultiplayerUI/AfterServer/CheckIPAddr" unique_id=1425735354]
+layout_mode = 2
+
 [node name="ClientOptions" type="Control" parent="MultiplayerUI" unique_id=419277535]
+visible = false
 layout_mode = 1
 anchor_left = 0.02
 anchor_top = 0.02
@@ -258,4 +272,5 @@ text = "Press \"Esc\" to free mouse"
 [connection signal="pressed" from="MultiplayerUI/ServerOrClient/HBoxContainer/Server" to="MultiplayerUI" method="_on_server_pressed"]
 [connection signal="pressed" from="MultiplayerUI/ServerOrClient/HBoxContainer/Client" to="MultiplayerUI" method="_on_client_pressed"]
 [connection signal="pressed" from="MultiplayerUI/ServerOptions/VBoxContainer/Control3/CreateServer" to="MultiplayerUI" method="_on_create_server_pressed"]
+[connection signal="pressed" from="MultiplayerUI/AfterServer/CheckIPAddr/CheckIPButton" to="MultiplayerUI" method="_on_check_ip_addr_pressed"]
 [connection signal="pressed" from="MultiplayerUI/ClientOptions/VBoxContainer/Control3/CreateClient" to="MultiplayerUI" method="_on_create_client_pressed"]

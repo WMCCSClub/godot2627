@@ -7,6 +7,12 @@ extends Camera3D
 var camera_rotate_x := 0.0 #current rotation around x axis
 var camera_rotate_y := 0.0 #current rotation around y axis
 
+@onready var player := $".."
+
+
+func _ready() -> void:
+	current = player.is_multiplayer_authority()
+		
 
 ## this function should only be called from the main input manager
 func process_mouse_delta(event: InputEvent) -> void:
@@ -29,7 +35,6 @@ func set_camera_rotation(rotation_x, rotation_y) -> void:
 	_update_camera(rotation_y, rotation_x)
 
 
-@onready var player := $".."
 func _update_camera(y:float, x:float):
 	player.rotation_degrees.y = y
 	rotation_degrees.x = x
