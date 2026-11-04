@@ -4,6 +4,7 @@ extends Node
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if not is_multiplayer_authority(): return
 	#handle mouse input
 	if event is InputEventMouseMotion:
 		if not (Input.mouse_mode == Input.MOUSE_MODE_CAPTURED): return	

@@ -10,10 +10,15 @@ editor_description = "the root of everything
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1456494946]
 _spawnable_scenes = PackedStringArray("uid://cbg2ruj1ud8du")
-spawn_path = NodePath("../World")
+spawn_path = NodePath("../Replicated")
 script = ExtResource("1_k2fmo")
 player_template = ExtResource("2_l3cfh")
 
 [node name="World" parent="." unique_id=1133173631 instance=ExtResource("1_hyk8p")]
 editor_description = "all the terrain and in game element that should be replicated between peers
 "
+
+[node name="Replicated" type="Node" parent="." unique_id=1918372972]
+editor_description = "Container for everything that replicate by the server
+
+should always be empty before the game start or else it will throw authority error"

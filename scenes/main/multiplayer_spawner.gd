@@ -17,6 +17,3 @@ func spawn_player(id:int):
 	new_player.player_id = id
 	new_player.name = str(id)
 	player_parent.call_deferred("add_child", new_player)
-	
-	## give player network athority
-	new_player.set_multiplayer_authority(id)

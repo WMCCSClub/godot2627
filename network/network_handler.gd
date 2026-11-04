@@ -28,7 +28,7 @@ func create_clinet(server_addr:String, _port:=port) -> bool:
 	ip_address = server_addr
 	_current_network_peer = ENetMultiplayerPeer.new()
 	
-	# delete all child so multiplayer spawner can stream all the content from server to there
+	 #delete all child so multiplayer spawner can stream all the content from server to there
 	if !multiplayer_spawner: return false
 	var spawn_dir = multiplayer_spawner.get_node(multiplayer_spawner.spawn_path)
 	if !spawn_dir: return false
@@ -50,12 +50,21 @@ func create_server(max_player, _port:=port):
 	
 
 ## end network
-func terminate_network():
+func terminate_network() -> void:
 	multiplayer.multiplayer_peer = OfflineMultiplayerPeer.new()
 	_current_network_peer = null
 	network_state = NetworkState.SINGLE_PLAYER
 
 ## check if the port is within 1024-65535, the rest are reserved ports
-func port_valid_check(_port:int):
+func port_valid_check(_port:int) -> bool:
 	if _port >= 1024 and _port <= 65535:
 		return true
+	return false
+
+
+func find_lan_IPv4() -> String:
+	var all_ip := IP.get_local_addresses()
+	for ip in all_ip:
+		if ip.begins_with("10.") or ip.begins_with("192.168."):
+			return ip
+	return ""

@@ -5,12 +5,24 @@
 [ext_resource type="Script" uid="uid://bc8n5xvwqph04" path="res://scenes/player/input_manager.gd" id="3_bvqhm"]
 [ext_resource type="PackedScene" uid="uid://ca8n48p02mrhh" path="res://scenes/player_ui/game_ui.tscn" id="4_ved6o"]
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_524rm"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_qabgp"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_1247e"]
+radius = 0.29101563
+height = 0.694043
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qabgp"]
 
 [node name="Player" type="CharacterBody3D" unique_id=714137968]
 script = ExtResource("1_h00vy")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1524503579]
+replication_config = SubResource("SceneReplicationConfig_524rm")
 
 [node name="RigMesh" type="Node3D" parent="." unique_id=944810116]
 
@@ -19,6 +31,11 @@ editor_description = "placeholder mesh for players model, will replace later (pr
 \"Visibility range\" set to 1m so yourself cant see it "
 visibility_range_begin = 1.0
 mesh = SubResource("CapsuleMesh_qabgp")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigMesh" unique_id=1600838777]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.555, -0.3478659)
+visibility_range_begin = 0.5
+mesh = SubResource("CapsuleMesh_1247e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2053922675]
 shape = SubResource("CapsuleShape3D_qabgp")
